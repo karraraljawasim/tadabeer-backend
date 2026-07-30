@@ -2,19 +2,6 @@
 
 A backend service for tracking expenses, managing budget categories, and generating financial reports. Built with Node.js, Express, TypeScript, MongoDB, and Redis.
 
-## Table of Contents
-
-* [Features](#features)
-* [Tech Stack](#tech-stack)
-* [Project Structure](#project-structure)
-* [Getting Started](#getting-started)
-    * [Prerequisites](#prerequisites)
-    * [Installation](#installation)
-* [Running with Docker](#running-with-docker)
-* [Troubleshooting](#troubleshooting)
-* [API Routes](#api-routes)
-* [Full Interactive API Documentation](#full-interactive-api-documentation)
-* [Testing](#testing)
 ## Features
 
 - **Authentication:** JWT-based access and refresh token flow.
@@ -22,12 +9,12 @@ A backend service for tracking expenses, managing budget categories, and generat
 - **Recurring Expenses:** A daily cron job automatically generates expenses that are set up to recur.
 - **Budget Alerts:** Spending is checked against budget thresholds in real time whenever an expense is created or updated.
 - **Reporting:** Generate monthly and category-based spending summaries.
-- **Caching & Security:** Redis-backed rate limiting on sensitive routes to prevent abuse.
-- **Validation:** Strict runtime type safety and request validation using Zod.
+- **Caching & Security:** Redis-backed rate limiting to prevent abuse.
+- **Validation:** Strict runtime type safety and request validation.
 - **Documentation:** Interactive Swagger UI.
 ## Tech Stack
 
-- **Core:** Node.js, Express 5, TypeScript
+- **Core:** Node.js, Express, TypeScript
 - **Database:** MongoDB (Mongoose)
 - **Caching & Rate Limiting:** Redis
 - **Validation:** Zod
@@ -113,39 +100,7 @@ docker compose --profile local-db up --build
 **MongoDB `querySrv ECONNREFUSED`:** some networks block the DNS SRV lookup used by `mongodb+srv://` connection strings. If you hit this, use the non-SRV connection string instead in Atlas, choose the standard driver connection string with the shard hosts listed directly (see `.env.example`), rather than the `mongodb+srv://` one.
 
 
-## API Routes
-
-All routes below, except `/api/auth/*`, require authentication.
-
-### Auth
-- `POST /api/auth/register`
-- `POST /api/auth/login`
-- `POST /api/auth/logout`
-- `POST /api/auth/logout-all`
-- `POST /api/auth/refresh`
-### Categories
-- `POST /api/categories`
-- `GET /api/categories`
-- `GET /api/categories/:categoryId`
-- `PATCH /api/categories/:categoryId`
-- `PUT /api/categories/:categoryId`
-### Expenses
-- `POST /api/expenses`
-- `GET /api/expenses`
-- `GET /api/expenses/:expenseId`
-- `PATCH /api/expenses/:expenseId`
-- `PATCH /api/expenses/:expenseId?softDelete=true`
-### Budget Alerts
-- `GET /api/budgets`
-- `GET /api/budgets/alerts`
-- `PATCH /api/budgets/alerts/:budgetAlertId/read`
-- `PATCH /api/budgets/alerts/read-all`
-- `GET /api/budgets/history`
-### Reports
-- `GET /api/reports/monthly`
-- `GET /api/reports/categories/:categoryId`
-- `GET /api/reports/summary`
-## Full Interactive API Documentation
+##  API Documentation
 
 ```text
 http://localhost:8080/api-docs
