@@ -2,13 +2,13 @@
   "name": "expense-tracker-backend",
   "version": "1.0.0",
   "description": "",
-  "homepage": "https://github.com/karraraljawasim/expense-tracker-api#readme",
+  "homepage": "https://github.com/karraraljawasim/expense-tracker-backend#readme",
   "bugs": {
-    "url": "https://github.com/karraraljawasim/expense-tracker-api/issues"
+    "url": "https://github.com/karraraljawasim/expense-tracker-backend/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/karraraljawasim/expense-tracker-api.git"
+    "url": "git+https://github.com/karraraljawasim/expense-tracker-backend.git"
   },
   "license": "MIT",
   "author": "",
