@@ -134,7 +134,7 @@ export class ReportService implements IReportService {
             { $limit: 3 },
             {
               $project: {
-                amount: 99.99,
+                amount: 1,
                 currency: 1,
                 amountInBaseCurrency: 1,
                 exchangeRateUsed: 1,

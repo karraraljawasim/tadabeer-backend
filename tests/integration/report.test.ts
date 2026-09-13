@@ -124,6 +124,7 @@ describe("get summary functionality", () => {
     await createTestExpense(userId, category._id, {
       amountInBaseCurrency: 100,
     });
+
     await createTestExpense(userId, category2._id, {
       amountInBaseCurrency: 10,
     });

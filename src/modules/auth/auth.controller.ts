@@ -69,7 +69,8 @@ export class AuthController {
     }
 
     const data = await this.authService.refresh(refreshToken);
+    setRefreshCookie(res, data.refreshToken);
 
-    ApiResponse.success(res, data);
+    ApiResponse.success(res, { accessToken: data.accessToken });
   });
 }

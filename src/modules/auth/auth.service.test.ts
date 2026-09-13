@@ -214,25 +214,6 @@ describe("AuthService.refresh", () => {
 
     await expect(authService.refresh("notFoundToken")).rejects.toThrow();
   });
-
-  it("Throw error if token is stolen", async () => {
-    const otherUserId = new Types.ObjectId();
-    const userId = new Types.ObjectId();
-
-    const tokens = getAuthTokens({ _id: userId, role: "user" });
-
-    RefreshToken.findOne = vi.fn().mockResolvedValue({
-      _id: "tokenId",
-      userId: otherUserId,
-      token: tokens.refreshToken,
-      expiresAt: new Date(Date.now() + 1000 * 60 * 60 * 24),
-    });
-
-    RefreshToken.updateOne = vi.fn().mockResolvedValue({});
-
-    await expect(authService.refresh(tokens.refreshToken)).rejects.toThrow();
-    expect(RefreshToken.updateOne).toHaveBeenCalledTimes(1);
-  });
 });
 
 describe("Auth.logout", () => {

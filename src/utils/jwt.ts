@@ -16,9 +16,14 @@ export const jwtUtils = {
   },
 
   signRefreshToken(payload: Omit<JwtPayload, "type">): string {
-    return jwt.sign({ ...payload, type: "refresh" }, env.JWT_REFRESH_SECRET, {
-      expiresIn: env.JWT_REFRESH_EXPIRE as any,
-    });
+    const { exp, iat, ...cleanPayload } = payload as any;
+    return jwt.sign(
+      { ...cleanPayload, type: "refresh" },
+      env.JWT_REFRESH_SECRET,
+      {
+        expiresIn: env.JWT_REFRESH_EXPIRE as any,
+      },
+    );
   },
 
   signPair(payload: Omit<JwtPayload, "type">): TokenPair {

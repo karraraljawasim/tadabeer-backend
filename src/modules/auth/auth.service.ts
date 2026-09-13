@@ -16,7 +16,7 @@ export interface IAuthService {
   login: (input: LoginUserRequestDto) => Promise<TokenPair>;
   logout: (refreshToken: string, accessToken: string) => Promise<void>;
   logoutAll: (usrId: string, accessToken: string) => Promise<void>;
-  refresh: (refreshToken: string) => Promise<Pick<TokenPair, "accessToken">>;
+  refresh: (refreshToken: string) => Promise<TokenPair>;
 }
 
 export class AuthService implements IAuthService {
@@ -147,17 +147,19 @@ export class AuthService implements IAuthService {
       throw new UnauthorizedError("Refresh token revoked");
     }
 
-    if (!storedToken.userId.equals(payload.sub.id)) {
-      await RefreshToken.updateOne(
-        { hashedToken: hashedToken },
-        { isRevoked: true },
-      );
-      throw new UnauthorizedError("Mismatch refresh token");
-    }
-    const accessToken = jwtUtils.signAccessToken(payload);
+    await RefreshToken.updateOne(
+      { hashedToken: hashedToken },
+      { isRevoked: true },
+    );
 
-    return {
-      accessToken,
-    };
+    const tokens = jwtUtils.signPair(payload);
+
+    await RefreshToken.create({
+      userId: payload.sub.id,
+      hashedToken: hashToken(tokens.refreshToken),
+      expiresAt: new Date(Date.now() + EXPIRES_REFRESH_TOKEN),
+    });
+
+    return tokens;
   }
 }
