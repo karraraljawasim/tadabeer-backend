@@ -11,8 +11,7 @@ import { rateLimiterMiddleware } from "./middlewares/rateLimiter.middleware.js";
 import { authenticate } from "./middlewares/auth.middlewares.js";
 import { generateOpenAPIDocument } from "./config/swagger/swagger.config.js";
 
-// @ts-ignore
-const openApiDocument = new generateOpenAPIDocument();
+const openApiDocument = generateOpenAPIDocument();
 const app = express();
 
 app.use(cookieParser());

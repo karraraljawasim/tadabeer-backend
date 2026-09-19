@@ -287,7 +287,7 @@ export class BudgetAlertService implements IBudgetAlertService {
           percentage = 0;
         } else {
           percentage = (totalSpent / budgetLimit) * 100;
-          percentage = Math.round(percentage / 100) * 100;
+          percentage = Math.round(percentage);
         }
 
         let status: "safe" | "warning" | "exceeded";

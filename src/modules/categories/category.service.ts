@@ -44,6 +44,7 @@ export class CategoryService implements ICategoryService {
     const category = await Categories.findOne({
       name: input.name,
       userId: input.userId,
+      isDeleted: false,
     });
     if (category) {
       throw new ConflictError("Category with same name");
@@ -111,7 +112,7 @@ export class CategoryService implements ICategoryService {
         totalCount,
         page,
         pageSize,
-        totalPages: Math.round(totalCount / pageSize),
+        totalPages: Math.ceil(totalCount / pageSize),
       },
     };
   }

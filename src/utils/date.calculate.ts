@@ -26,10 +26,10 @@ export function calculateNextRunAt(
       nextDate.setDate(nextDate.getDate() + interval * 7);
       break;
     case "monthly":
-      nextDate.setDate(nextDate.getMonth() + interval);
+      nextDate.setMonth(nextDate.getMonth() + interval);
       break;
     case "yearly":
-      nextDate.setDate(nextDate.getFullYear() + interval);
+      nextDate.setFullYear(nextDate.getFullYear() + interval);
       break;
   }
 

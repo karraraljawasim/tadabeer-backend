@@ -59,10 +59,10 @@ export class ExpenseService implements IExpenseService {
       throw new UnauthorizedError("You not the owner to this category");
     }
 
-    const amountInBaseCurrency = computeAmountInBaseCurrency(
+    const amountInBaseCurrency = computeAmountInBaseCurrency({
       exchangeRate,
-      input.amount,
-    );
+      amount: input.amount,
+    });
 
     let newExpense;
 
@@ -244,10 +244,10 @@ export class ExpenseService implements IExpenseService {
         (input.amount !== expense.amount && input.amount) ||
         (expense.currency !== input.currency && input.currency)
       ) {
-        amountInBaseCurrency = computeAmountInBaseCurrency(
-          input.amount ? input.amount : expense.amount,
+        amountInBaseCurrency = computeAmountInBaseCurrency({
+          amount: input.amount ? input.amount : expense.amount,
           exchangeRate,
-        );
+        });
       }
 
       await Expense.findByIdAndUpdate(expenseId, {
@@ -276,10 +276,10 @@ export class ExpenseService implements IExpenseService {
         (input.amount !== expense.amount && input.amount) ||
         (input.currency !== expense.currency && input.currency)
       ) {
-        amountInBaseCurrency = computeAmountInBaseCurrency(
-          input.amount ? input.amount : expense.amount,
+        amountInBaseCurrency = computeAmountInBaseCurrency({
+          amount: input.amount ? input.amount : expense.amount,
           exchangeRate,
-        );
+        });
       }
 
       await Expense.findByIdAndUpdate(expenseId, {
@@ -305,10 +305,10 @@ export class ExpenseService implements IExpenseService {
           (input.amount !== expense.amount && input.amount) ||
           (input.currency !== expense.currency && input.currency)
         ) {
-          amountInBaseCurrency = computeAmountInBaseCurrency(
-            input.amount ? input.amount : expense.amount,
+          amountInBaseCurrency = computeAmountInBaseCurrency({
+            amount: input.amount ? input.amount : expense.amount,
             exchangeRate,
-          );
+          });
         }
 
         await Expense.findByIdAndUpdate(expenseId, {
@@ -331,10 +331,10 @@ export class ExpenseService implements IExpenseService {
           (input.amount !== expense.amount && input.amount) ||
           (input.currency !== expense.currency && input.currency)
         ) {
-          amountInBaseCurrency = computeAmountInBaseCurrency(
-            input.amount ? input.amount : expense.amount,
+          amountInBaseCurrency = computeAmountInBaseCurrency({
+            amount: input.amount ? input.amount : expense.amount,
             exchangeRate,
-          );
+          });
         }
 
         await Expense.findByIdAndUpdate(expenseId, {
@@ -359,10 +359,10 @@ export class ExpenseService implements IExpenseService {
           (input.amount !== expense.amount && input.amount) ||
           (input.currency !== expense.currency && input.currency)
         ) {
-          amountInBaseCurrency = computeAmountInBaseCurrency(
-            input.amount ? input.amount : expense.amount,
+          amountInBaseCurrency = computeAmountInBaseCurrency({
+            amount: input.amount ? input.amount : expense.amount,
             exchangeRate,
-          );
+          });
         }
 
         await Expense.findByIdAndUpdate(expenseId, {

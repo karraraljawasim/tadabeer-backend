@@ -6,9 +6,10 @@ extendZodWithOpenApi(z);
 
 export const getAllTriggeredAlertsQuerySchema = z.object({
   isRead: z
-    .string()
+    .enum(["true", "false"])
+    .transform((v) => v === "true")
     .optional()
-    .default("false")
+    .default(false)
     .openapi({ description: "Is alert read" }),
   month: z
     .string()

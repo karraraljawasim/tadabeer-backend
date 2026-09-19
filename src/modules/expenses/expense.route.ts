@@ -27,7 +27,7 @@ expenseRouter
     validate(updateExpenseSchema),
     expenseController.update,
   )
-  .patch(
+  .delete(
     validate(expenseIdPramsSchema, "params"),
     validate(expenseSoftDeleteQuerySchema, "query"),
     expenseController.softDelete,

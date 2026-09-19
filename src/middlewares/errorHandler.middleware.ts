@@ -1,6 +1,7 @@
 import type { Request, Response, NextFunction } from "express";
 import { AppError } from "../utils/AppError.js";
 import { ZodError } from "zod";
+import { env } from "../config/env.js";
 
 export const globalErrorHandler = (
   err: Error,
@@ -31,6 +32,6 @@ export const globalErrorHandler = (
   res.status(500).json({
     success: false,
     message: err.message,
-    stack: err.stack,
+    stack: env.NODE_ENV === "production" ? undefined : err.stack,
   });
 };

@@ -62,19 +62,19 @@ describe("ExpenseService.create", () => {
   it("calculate amount in base currency correctly", async () => {
     const exchangeRate = 1;
     const amount = 200;
-    const amountInBaseCurrency = computeAmountInBaseCurrency(
+    const amountInBaseCurrency = computeAmountInBaseCurrency({
       exchangeRate,
       amount,
-    );
+    });
 
     expect(amountInBaseCurrency).toBe(200);
 
     const exchangeRate2 = 2.5;
     const amount2 = 250;
-    const amountInBaseCurrency2 = computeAmountInBaseCurrency(
-      exchangeRate2,
-      amount2,
-    );
+    const amountInBaseCurrency2 = computeAmountInBaseCurrency({
+      exchangeRate: exchangeRate2,
+      amount: amount2,
+    });
 
     expect(amountInBaseCurrency2).toBe(625);
   });

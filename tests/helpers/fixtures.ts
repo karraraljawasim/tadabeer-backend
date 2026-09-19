@@ -46,8 +46,9 @@ export async function createTestCategory(
 export async function createTestExpense(
   userId: Types.ObjectId,
   categoryId: Types.ObjectId,
-  overrides = {},
+  overrides: any = {},
 ) {
+  const date = overrides?.date ?? new Date();
   const expense = await Expense.create({
     categoryId: categoryId,
     userId: userId,
@@ -56,14 +57,14 @@ export async function createTestExpense(
     note: "Test",
     exchangeRateUsed: 1,
     amountInBaseCurrency: 50,
-    date: new Date("2026-06-01"),
+    date,
     isRecurring: false,
     recurrence: null,
     attachmentUrl: null,
     ...overrides,
   });
 
-  await checkBudgetAlert(String(userId), String(categoryId));
+  await checkBudgetAlert(String(userId), String(categoryId), date);
 
   return expense;
 }

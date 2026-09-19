@@ -142,9 +142,8 @@ describe("get summary functionality", () => {
     });
 
     const res = await request(app)
-      .get(endpoint)
-      .set("Authorization", `Bearer ${token}`)
-      .send({ thisMonthBudget: 300 });
+      .get(`${endpoint}?thisMonthBudget=300`)
+      .set("Authorization", `Bearer ${token}`);
 
     expect(res.status).toBe(200);
     expect(res.body.data?.financial.totalSpendSoFar).toBe(240);

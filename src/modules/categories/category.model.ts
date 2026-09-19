@@ -38,7 +38,10 @@ const categorySchema = new Schema<Category>(
 
 //Indexes
 categorySchema.index({ userId: 1 });
-categorySchema.index({ userId: 1, name: 1 }, { unique: true });
+categorySchema.index(
+  { userId: 1, name: 1 },
+  { unique: true, partialFilterExpression: { isDeleted: false } },
+);
 
 const Categories = model<Category>("Categories", categorySchema);
 

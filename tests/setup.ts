@@ -11,14 +11,17 @@ beforeAll(async () => {
 
   mongo = await MongoMemoryServer.create();
   await mongoose.connect(mongo.getUri());
+
+  vi.useFakeTimers({ toFake: ["Date"] });
+  vi.setSystemTime(new Date("2026-06-15T00:00:00.000Z"));
 });
 
 afterAll(async () => {
+  vi.useRealTimers();
+
   await mongoose.connection.dropDatabase();
   await mongoose.connection.close();
-  if (mongo) {
-    await mongo.stop();
-  }
+  if (mongo) await mongo.stop();
 });
 
 beforeEach(async () => {

@@ -115,7 +115,7 @@ swaggerRegistry.registerPath({
 });
 
 swaggerRegistry.registerPath({
-  method: "put",
+  method: "delete",
   path: "/categories/{categoryId}",
   tags: ["categories"],
   security: [{ bearerAuth: [] }],

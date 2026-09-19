@@ -25,7 +25,7 @@ export async function getCachedCategories(
   const key = REDIS_KEY.categories(userId);
   const data = await client.hGetAll(key);
 
-  if ((Object.keys(data).length === 0, !data.categories)) return null;
+  if (Object.keys(data).length === 0 || !data.categories) return null;
   return {
     categories: JSON.parse(data.categories),
     page: parseInt(data.page!),

@@ -132,7 +132,7 @@ swaggerRegistry.registerPath({
 });
 
 swaggerRegistry.registerPath({
-  method: "patch",
+  method: "delete",
   path: "/expenses/{expenseId}/soft-delete",
   tags: ["expenses"],
   summary: "Soft deleted expense",

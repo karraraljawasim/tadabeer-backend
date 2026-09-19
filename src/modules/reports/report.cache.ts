@@ -3,10 +3,14 @@ import REDIS_KEY from "../../config/redis/redis.keys.js";
 
 const client = await initializeRedisClient();
 
-export async function setCacheSummary(userId: string, summary: any) {
+export async function setCacheSummary(
+  userId: string,
+  summary: any,
+  ttlInSeconds = 3600,
+) {
   const key = REDIS_KEY.report.summary(userId);
 
-  await client.set(key, JSON.stringify(summary));
+  await client.set(key, JSON.stringify(summary), { EX: ttlInSeconds });
 }
 
 export async function getCachedSummary(userId: string) {

@@ -91,7 +91,7 @@ export class ReportService implements IReportService {
         totalCount: totalCategories,
         page,
         pageSize,
-        totalPages: Math.round(totalCategories / pageSize),
+        totalPages: Math.ceil(totalCategories / pageSize),
       },
     };
   }
