@@ -1,14 +1,14 @@
 {
-  "name": "expense-tracker-backend",
+  "name": "tadabeer-backend",
   "version": "1.0.0",
   "description": "",
-  "homepage": "https://github.com/karraraljawasim/expense-tracker-backend#readme",
+  "homepage": "https://github.com/karraraljawasim/tadabeer-backend#readme",
   "bugs": {
-    "url": "https://github.com/karraraljawasim/expense-tracker-backend/issues"
+    "url": "https://github.com/karraraljawasim/tadabeer-backend/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/karraraljawasim/expense-tracker-backend.git"
+    "url": "git+https://github.com/karraraljawasim/tadabeer-backend.git"
   },
   "license": "MIT",
   "author": "",

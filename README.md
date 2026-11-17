@@ -1,6 +1,6 @@
-# Expense Tracker REST API
+# Tadabeer
 
-A backend service for tracking expenses, managing budget categories, and generating financial reports. Built with Node.js, Express, TypeScript, MongoDB, and Redis.
+ A RESTful API for tracking expenses, managing budget categories, and generating financial reports. Built with Node.js, Express, TypeScript, MongoDB, and Redis.
 
 ## Features
 
@@ -22,7 +22,7 @@ A backend service for tracking expenses, managing budget categories, and generat
 ## Project Structure
 
 ```text
-expense-tracker-backend/
+tadabeer-backend/
 ├── src/
 │   ├── config/             
 │   ├── helpers/            
@@ -59,8 +59,8 @@ expense-tracker-backend/
 
 1. Clone the repository:
 ```bash
-   git clone https://github.com/karraraljawasim/expense-tracker-backend.git
-   cd expense-tracker-backend
+   git clone https://github.com/karraraljawasim/tadabeer-backend.git
+   cd tadabeer-backend
 ```
 
 2. Install dependencies:
@@ -93,7 +93,7 @@ docker compose up --build
 ```bash
 docker compose --profile local-db up --build
 ```
-*Set `DB_URL` in `.env.development.local` to `mongodb://mongo:27017/expense_tracker_api`.*
+*Set `DB_URL` in `.env.development.local` to `mongodb://mongo:27017/tadabeer_backend`.*
 
 ## Troubleshooting
 

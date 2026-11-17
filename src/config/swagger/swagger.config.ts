@@ -13,7 +13,7 @@ export function generateOpenAPIDocument() {
   return generator.generateDocument({
     openapi: "3.0.0",
     info: {
-      title: "Expense Tracker API",
+      title: "Tadabeer API",
       version: "1.0",
     },
     servers: [{ url: "http://localhost:8080/api/" }],

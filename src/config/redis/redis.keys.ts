@@ -1,19 +1,19 @@
 const REDIS_KEY = {
   auth: {
     blacklist: (tokenHash: string) =>
-      `expense-tracker:auth:blacklist:${tokenHash}`,
+      `tadabeer:auth:blacklist:${tokenHash}`,
   },
 
   rateLimiter: (userId?: string, ip?: string) =>
-    `expense-tracker: rateLimiter: ${userId || ip || "unknown"}`,
+    `tadabeer: rateLimiter: ${userId || ip || "unknown"}`,
 
-  categories: (userId: string) => `expense-tracker: categories: ${userId}`,
+  categories: (userId: string) => `tadabeer: categories: ${userId}`,
 
   report: {
-    summary: (userId: string) => `expense-tracker: report: summary: ${userId}`,
+    summary: (userId: string) => `tadabeer: report: summary: ${userId}`,
   },
 
-  expenses: (userId: string) => `expense-tracker: expenses: ${userId}`,
+  expenses: (userId: string) => `tadabeer: expenses: ${userId}`,
 } as const;
 
 export default REDIS_KEY;
