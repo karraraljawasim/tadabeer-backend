@@ -12,7 +12,7 @@ import {
 
 const expenseController = new ExpenseController(new ExpenseService());
 
-export const expenseRouter = Router();
+export const expenseRouter: Router = Router();
 
 expenseRouter
   .route("/")

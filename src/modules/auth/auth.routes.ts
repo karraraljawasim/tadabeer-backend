@@ -8,7 +8,7 @@ import { rateLimiterMiddleware } from "../../middlewares/rateLimiter.middleware.
 
 const authController = new AuthController(new AuthService());
 
-export const authRouter = Router();
+export const authRouter: Router = Router();
 
 authRouter.post(
   "/register",

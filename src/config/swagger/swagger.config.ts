@@ -7,7 +7,7 @@ import "../../modules/categories/category.docs.js";
 import "../../modules/expenses/expenes.docs.js";
 import "../../modules/reports/report.docs.js";
 
-export function generateOpenAPIDocument() {
+export function generateOpenAPIDocument():Record<string, any> {
   const generator = new OpenApiGeneratorV3(swaggerRegistry.definitions);
 
   return generator.generateDocument({

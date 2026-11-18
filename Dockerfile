@@ -1,14 +1,18 @@
 FROM node:24-alpine
 
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable
+
 WORKDIR /app
 
-COPY package*.json ./
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml* ./
 
-RUN npm install
+RUN pnpm install --frozen-lockfile
 
 COPY . .
 
-RUN npm run build
+RUN pnpm build
 
 EXPOSE 8080
 

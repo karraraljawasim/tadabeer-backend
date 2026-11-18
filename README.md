@@ -65,7 +65,7 @@ tadabeer-backend/
 
 2. Install dependencies:
 ```bash
-   npm install
+   pnpm install
 ```
 
 3. Environment Setup:
@@ -76,7 +76,7 @@ tadabeer-backend/
 
 4. Run the development server:
 ```bash
-   npm run dev
+   pnpm dev
 ```
 The server starts on `http://localhost:8080`.
 
@@ -109,5 +109,5 @@ http://localhost:8080/api-docs
 ## Testing
 
 ```bash
-npm test
+pnpm test
 ```

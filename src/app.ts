@@ -1,4 +1,4 @@
-import express from "express";
+import express, {Express}from "express";
 import cookieParser from "cookie-parser";
 import swaggerUi from "swagger-ui-express";
 import { authRouter } from "./modules/auth/auth.routes.js";
@@ -12,7 +12,7 @@ import { authenticate } from "./middlewares/auth.middlewares.js";
 import { generateOpenAPIDocument } from "./config/swagger/swagger.config.js";
 
 const openApiDocument = generateOpenAPIDocument();
-const app = express();
+const app: Express = express();
 
 app.use(cookieParser());
 app.use(express.json());

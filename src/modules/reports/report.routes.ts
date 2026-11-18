@@ -9,7 +9,7 @@ import {
 import { categoryIdParamsSchema } from "../categories/category.validation.js";
 
 const reportController = new ReportController(new ReportService());
-export const reportRouter = Router();
+export const reportRouter: Router = Router();
 
 reportRouter
   .route("/monthly")

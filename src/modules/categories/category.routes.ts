@@ -11,7 +11,7 @@ import {
 
 const categoryController = new CategoryController(new CategoryService());
 
-export const categoryRouter = Router();
+export const categoryRouter: Router = Router();
 
 categoryRouter
   .route("/")

@@ -12,7 +12,7 @@ const budgetAlertController = new BudgetAlertController(
   new BudgetAlertService(),
 );
 
-export const budgetAlertRouter = Router();
+export const budgetAlertRouter: Router = Router();
 
 budgetAlertRouter.route("/").get(budgetAlertController.getMonthlyBudgetStatus);
 

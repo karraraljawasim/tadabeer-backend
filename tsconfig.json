@@ -21,7 +21,7 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "sourceMap": true,
-    "declaration": true,
+    "declaration": false,
     "removeComments": true
   },
   "include": ["src/**/*.ts"],
